@@ -5,11 +5,27 @@ import './Info.css';
 import im_2 from '../components/Images/12.jpg'; 
 import name from '../components/Images/name.jpg'; 
 import video from '../components/Images/large.mp4'; 
- import Menu from '../components/Menu';
+
 import poster from '../components/Images/02.jpg'; 
 
+import Card from '../components/Admin/Card';
+import AdminData from '../components/Admin/AdminData';
 
-function Info() {
+function Info({ token }) {
+
+ function removeToken() {
+        const token = localStorage.getItem('token');
+        if (token === null) {
+            alert('Вы покидаете кабинет');
+        } else {
+            localStorage.removeItem('token');
+            window.location.reload();  
+        }
+    } 
+
+
+
+
   return (
     <div className="Info">
  
@@ -18,9 +34,9 @@ function Info() {
  
  
        <section className="services">
-         <h2>СТРАНИЦА АДМИНИСТРАТОРА САЙТА</h2>
+         <h2>СТРАНИЦА АДМИНИСТРАТОРА САЙТА</h2>  <button onClick={removeToken}>ВЫЙТИ</button>
          <br/>
-        
+        <AdminData/>
        </section>
  <br/>
        <h2>Меню на неделю</h2>
@@ -29,7 +45,9 @@ function Info() {
        
          <br/>
  
-<Menu/>
+
+   <Card/>
+
  
  
        <section className="video-section">

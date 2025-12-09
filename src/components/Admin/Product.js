@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './Product.css';
 
-function Product() {
+function Product({ cardId }) {
   const [products, setProducts] = useState([]);
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
@@ -25,7 +25,7 @@ function Product() {
     const response = await fetch('http://localhost:9001/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: newTitle, description: newDescription, price: newPrice })
+      body: JSON.stringify({ title: newTitle, description: newDescription, price: newPrice, cardId }),
     });
     if (response.ok) {
       const createdProduct = await response.json();
@@ -33,6 +33,17 @@ function Product() {
       setNewTitle('');
       setNewDescription('');
       setNewPrice('');
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    const response = await fetch(`http://localhost:9001/api/products/${id}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      setProducts(products.filter(product => product.id !== id && product._id !== id));
+    } else {
+      alert('Ошибка при удалении продукта');
     }
   };
 
@@ -50,7 +61,7 @@ function Product() {
           placeholder="Описание"
           value={newDescription}
           onChange={e => setNewDescription(e.target.value)}
-     />
+        />
         <input
           type="text"
           placeholder="Цена"
@@ -61,12 +72,14 @@ function Product() {
       </div>
 
       <ul>
-        {products.map(product => (
+        {products.filter(product => product.cardId === cardId).map(product => (
           <li className="card__item" key={product.id || product._id}>
             <div className="card__title">{product.title}</div>
             <div className="card__description">{product.description}</div>
             <div className="card__price">{product.price}₽</div>
-            {/* Добавь функцию покупки если нужна */}
+            <button onClick={() => deleteProduct(product.id || product._id)} style={{marginLeft: '10px'}}>
+              Удалить
+            </button>
           </li>
         ))}
       </ul>

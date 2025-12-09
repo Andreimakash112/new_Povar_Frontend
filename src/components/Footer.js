@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import im_2 from './Images/houm.jpg';
 import im_3 from './Images/qr-kod.jpg';
+import Data from './Admin/Data';
 
 function Footer() {
   return (
@@ -9,18 +10,14 @@ function Footer() {
       <h1 className="Footer-titl">КОНТАКТЫ</h1>
       <section className="sectio">
         <article className="Foot">
-          <div className="smoll">
-            <h3 className="ard__name">ООО Поварешка</h3>
-            <p className="ard__text">Ногинск</p>
-            <div className="divider" />
-            <p className="ard__text">Ул. Красноармейская, дом 6, корпус Б</p>
-            <p className="ard__text">На территории техцентра Komatsu</p>
-            <p className="ard__phone">📞 8 980 157 73 23</p>
-            <p className="ard__email">ash@yandex.ru</p>
+          
+<Data  />
+           
+
             <br/>
                <p>Исключительно по договору 🤝</p>
         <p>Оплата по безналу в конце месяца после выставления счета.</p>
-          </div>
+          
         </article>
 
         <article className="Foot">

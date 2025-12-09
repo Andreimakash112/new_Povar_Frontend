@@ -1,0 +1,47 @@
+
+.Manager {
+  max-width: 800px;
+  margin: 20px  auto;
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Manager li {
+  /* Элементы списка */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.Manager hr {
+  /* Горизонтальная линия */
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+  margin: 20px 0;
+}
+.ButtonBask {
+display: flex;
+justify-content: center;
+
+
+}
+.ButtonBask button {
+margin-left: 5px;
+
+
+}

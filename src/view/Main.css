@@ -64,19 +64,7 @@ flex-wrap: wrap;
  padding: 30px;
 }
 
-/*
-.cardName {
-  width: 200px;
-  min-height: 400px;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  color: #f8f5f5;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-   margin-top: 10px;
-   margin: auto;
-}
-*/
+
 
 
 
@@ -188,3 +176,11 @@ margin-top: 20%;
 .Number{
   background-color: brown;
 }
+ .NavUser {
+  width: 90%; /* Ширина уменьшена для удобства размещения */
+  min-height: 60px;
+  display: flex;
+  justify-content: flex-end; /* Выравниваем элементы по правому краю */
+  flex-wrap: wrap;
+}
+

@@ -35,3 +35,32 @@
    align-items: center;
    font-weight: bold;
 }
+ .NavUser {
+  width: 90%; /* Ширина уменьшена для удобства размещения */
+  min-height: 30px;
+  display: flex;
+  justify-content: flex-end; /* Выравниваем элементы по правому краю */
+  flex-wrap: wrap;
+}
+
+.NavUser ul {
+  width: 100%;
+  min-height: 30px;
+  display: flex;
+  justify-content: flex-end; /* Элементы будут начинаться слева */
+  flex-wrap: wrap;
+}
+
+.NavUser li {
+  width: 120px;
+  min-height: 25px;
+  display: flex;
+  margin-left: 10px; /* Между элементами делаем небольшой отступ */
+  border: 2px solid rgb(180, 26, 26);
+  color: #f8f6f6;
+  border-radius: 12px;
+  justify-content: center;
+  list-style-type: none;
+  align-items: center;
+  font-weight: bold;
+}
