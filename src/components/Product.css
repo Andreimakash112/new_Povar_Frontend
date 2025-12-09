@@ -1,0 +1,26 @@
+
+
+.card__item {
+  list-style: none;
+  padding: 10px;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+
+.card__title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card__description {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.card__price {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

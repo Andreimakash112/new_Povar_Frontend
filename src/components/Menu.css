@@ -1,0 +1,14 @@
+.Menu {
+  max-width: 1100px;        /* ограничивает ширину контейнера */
+  width: 80%;               /* можно оставить или убрать, если используете max-width */
+  min-height: 800px;
+  margin: 0 auto;           /* центрирует контейнер */
+  display: flex;
+  justify-content: center;
+ margin: auto;           /* внутренние отступы от краёв контейнера */
+  background-image: url('../components/Images/fon.jpg');
+  border: 1px solid #ddd;
+  border-radius: 8px;
+flex-wrap: wrap;
+ padding: 30px;
+}

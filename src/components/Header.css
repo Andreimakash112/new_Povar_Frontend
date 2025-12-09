@@ -1,0 +1,37 @@
+.Header {
+    width:100%;
+    min-height:250px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-image: url('./Images/03.jpg'); /* путь относительно файла Main.css */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Header ul{
+  width:100%;
+  min-height:60px ;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.Header li{
+  width: 100px;
+  min-height:25px ;
+  display: flex;
+ margin: auto;
+  border: 2px solid rgb(180, 26, 26);
+  color: #f8f6f6;
+  border-radius: 12px;
+  justify-content: center;
+  list-style-type: none;
+   margin: 10px; 
+   align-items: center;
+   font-weight: bold;
+}

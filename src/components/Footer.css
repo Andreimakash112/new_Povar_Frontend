@@ -1,0 +1,30 @@
+.Footer {
+ 
+  background-color: #f9f9f9;
+  width: 100%;
+ min-height:300px ;
+}
+
+
+
+
+
+.ard__img {
+  max-width: 100%; /* Обеспечивает адаптивность изображений */
+  height: auto;
+}
+
+.Foot {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 300px;
+ 
+}
+
+.sectio {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+ gap: 35px;
+}
