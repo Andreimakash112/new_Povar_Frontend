@@ -63,7 +63,6 @@ function Card() {
   return (
     <div className="Menu">
       <div>
-       
         <input
           id="title-input"
           type="text"
@@ -71,14 +70,18 @@ function Card() {
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
         />
-        
-        <input
-          id="imageInput"
-          type="file"
-          accept="image/*"
-          onChange={(e) => setNewImageFile(e.target.files[0])}
-         
-        />
+
+        <label htmlFor="imageInput" className="custom-file-button">
+          Выбрать фотографию
+          <input
+            id="imageInput"
+            type="file"
+            accept="image/*"
+            onChange={(e) => setNewImageFile(e.target.files[0])}
+            style={{ display: 'none' }}
+          />
+        </label>
+
         <button onClick={addCard}>Добавить карточку</button>
       </div>
 
@@ -94,7 +97,6 @@ function Card() {
                 <button
                   aria-label={`Удалить карточку "${card.title}"`}
                   onClick={() => deleteCard(card._id, card.image)}
-                 
                 >
                   Удалить
                 </button>
@@ -124,5 +126,4 @@ function Card() {
 }
 
 export default Card;
-
 
