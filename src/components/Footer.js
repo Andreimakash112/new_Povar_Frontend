@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import im_2 from './Images/houm.jpg';
-import im_3 from './Images/qr-kod.jpg';
+import im_3 from './Images/яндекс.jpg';
 import Data from './Admin/Data';
 
 function Footer() {

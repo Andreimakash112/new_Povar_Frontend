@@ -105,7 +105,7 @@ export default function Order() {
         Скачать файл со всеми заказами
       </button>
       
-<p>Отправте скачаный заказ  нам на почту - andrei.makash@yandex.ru</p>
+<p>Отправте скачаный заказ  нам на почту </p>
     
     </div>
   );
