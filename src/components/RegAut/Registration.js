@@ -1,9 +1,7 @@
-
-
 import React, { useState } from 'react';
 
 // Регулярное выражение для проверки формата e-mail
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@.]{2,}(?:\.[^\s@.]{2,})*$/;
 
 function Registration({ message }) {
     const [values, setValues] = useState({
@@ -73,7 +71,7 @@ function Registration({ message }) {
         })
         .then(response => response.json())
         .then((result) => {
-            setRegMessage(result.message || result.error); // Используем правильный оператор ||
+            setRegMessage(result.message || result.error);
         })
         .catch(() => {
             setRegMessage('Ошибка при регистрации.');
@@ -119,5 +117,3 @@ function Registration({ message }) {
 }
 
 export default Registration;
-
-
