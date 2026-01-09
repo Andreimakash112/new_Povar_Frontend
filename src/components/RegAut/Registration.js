@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Регулярное выражение для проверки формата e-mail
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@.]{2,}(?:\.[^\s@.]{2,})*$/;
 
 function Registration({ message }) {
@@ -18,12 +17,12 @@ function Registration({ message }) {
 
     const [regMessage, setRegMessage] = useState('');
 
-    // Обработка изменения логина
+   
     function handleLoginChange(value) {
         setValues(prevState => ({...prevState, login: value}));
     }
 
-    // Обработка изменения пароля
+    
     function handlePasswordChange(value) {
         setValues(prevState => ({...prevState, password: value}));
     }
@@ -45,13 +44,13 @@ function Registration({ message }) {
     function Reg() {
         const { login, password, email } = values;
 
-        // Проверяем наличие ошибок перед отправкой данных
+      
         if (!login || !password || !email || errors.emailError !== '') {
             setRegMessage('Заполните все поля правильно!');
             return;
         }
 
-        const userstatus = '1'; // По умолчанию статус пользователя
+        const userstatus = '1'; // По умолчанию статус пользователя на будущее для развития приложения 
 
         const data = {
             login,
