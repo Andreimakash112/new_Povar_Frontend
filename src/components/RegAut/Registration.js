@@ -1,13 +1,60 @@
+
+
 import React, { useState } from 'react';
 
+// Регулярное выражение для проверки формата e-mail
+const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
 function Registration({ message }) {
+    const [values, setValues] = useState({
+        login: '',
+        password: '',
+        email: ''
+    });
+
+    const [errors, setErrors] = useState({
+        loginError: '',
+        passwordError: '',
+        emailError: ''
+    });
+
     const [regMessage, setRegMessage] = useState('');
 
+    // Обработка изменения логина
+    function handleLoginChange(value) {
+        setValues(prevState => ({...prevState, login: value}));
+    }
+
+    // Обработка изменения пароля
+    function handlePasswordChange(value) {
+        setValues(prevState => ({...prevState, password: value}));
+    }
+
+    // Обработка изменения e-mail
+    function handleEmailChange(value) {
+        let errorText = '';
+        if (!EMAIL_REGEX.test(value)) {
+            errorText = 'Некорректный формат E-Mail.';
+        }
+        setErrors(prevState => ({
+            ...prevState,
+            emailError: errorText
+        }));
+        setValues(prevState => ({...prevState, email: value}));
+    }
+
+    // Основная логика регистрации
     function Reg() {
-        const login = document.getElementById('login').value;
-        const password = document.getElementById('password').value;
-        const email = document.getElementById('email').value;
-        const userstatus = '1';
+        const { login, password, email } = values;
+
+        // Проверяем наличие ошибок перед отправкой данных
+        if (!login || !password || !email || errors.emailError !== '') {
+            setRegMessage('Заполните все поля правильно!');
+            return;
+        }
+
+        const userstatus = '1'; // По умолчанию статус пользователя
+
         const data = {
             login,
             password,
@@ -24,11 +71,11 @@ function Registration({ message }) {
             },
             body: JSON.stringify(data)
         })
-        .then(result => result.json())
+        .then(response => response.json())
         .then((result) => {
-            setRegMessage(result.message || result.error); // Установим новое сообщение
+            setRegMessage(result.message || result.error); // Используем правильный оператор ||
         })
-        .catch(error => {
+        .catch(() => {
             setRegMessage('Ошибка при регистрации.');
         });
     }
@@ -36,9 +83,33 @@ function Registration({ message }) {
     return (
         <>
             <h1>Регистрация</h1>
-            <input id='login' type='text' placeholder='НАЗВАНИЕ ОРГАНИЗАЦИИ' />
-            <input id='password' type='password' placeholder='ПРИДУМАЙТЕ ПАРОЛЬ' />
-            <input id='email' type='email' placeholder='Почта' />
+            <input
+                id='login'
+                type='text'
+                placeholder='Название организации'
+                value={values.login}
+                onChange={(e) => handleLoginChange(e.currentTarget.value)}
+            />
+            <span style={{color: 'red'}}>{errors.loginError}</span><br/>
+            
+            <input
+                id='password'
+                type='password'
+                placeholder='Придумайте пароль'
+                value={values.password}
+                onChange={(e) => handlePasswordChange(e.currentTarget.value)}
+            />
+            <span style={{color: 'red'}}>{errors.passwordError}</span><br/>
+            
+            <input
+                id='email'
+                type='email'
+                placeholder='Почта'
+                value={values.email}
+                onChange={(e) => handleEmailChange(e.currentTarget.value)}
+            />
+            <span style={{color: 'red'}}>{errors.emailError}</span><br/>
+            
             <button onClick={Reg}>Сохранить</button>
             <p style={{ color: regMessage.includes('успешно') ? 'green' : 'red' }}>
                 {regMessage}
@@ -48,3 +119,5 @@ function Registration({ message }) {
 }
 
 export default Registration;
+
+
